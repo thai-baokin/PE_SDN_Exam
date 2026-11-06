@@ -44,3 +44,4 @@ export function formatReadingLog(log: {
     createdAt: log.createdAt.toISOString(),
   };
 }
+

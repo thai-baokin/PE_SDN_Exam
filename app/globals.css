@@ -1,104 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.75rem;
+    --kem: #EFEBDD;
+    --nga: #FCFAF3;
+    --muc: #1F2430;
+    --sanho: #E5636B;
+
+    --background: 46 29% 90%; /* #EFEBDD */
+    --foreground: 223 22% 15%; /* #1F2430 */
+    --card: 45 43% 97%; /* #FCFAF3 */
+    --card-foreground: 223 22% 15%;
+    --popover: 45 43% 97%;
+    --popover-foreground: 223 22% 15%;
+    --primary: 223 22% 15%;
+    --primary-foreground: 45 43% 97%;
+    --secondary: 46 20% 86%;
+    --secondary-foreground: 223 22% 15%;
+    --muted: 46 20% 86%;
+    --muted-foreground: 223 15% 40%;
+    --accent: 356 73% 66%; /* #E5636B */
+    --accent-foreground: 45 43% 97%;
+    --destructive: 356 73% 66%;
+    --destructive-foreground: 45 43% 97%;
+    --border: 223 22% 15% / 0.12;
+    --input: 223 22% 15% / 0.15;
+    --ring: 356 73% 66%;
+    --radius: 1.25rem;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: rgba(31, 36, 48, 0.12);
   }
   body {
-    @apply bg-background text-foreground antialiased min-h-screen selection:bg-blue-100 selection:text-blue-900;
+    background-color: #EFEBDD;
+    color: #1F2430;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, .font-serif {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.02em;
   }
 }
 
-/* 3D & Glassmorphic Custom Classes */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.82);
+/* Warm Editorial Glass & Card Utilities */
+.editorial-glass {
+  background-color: rgba(252, 250, 243, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05),
-              0 20px 25px -5px rgba(59, 130, 246, 0.04),
-              inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px rgba(31, 36, 48, 0.04);
 }
 
-.card-3d {
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+.card-editorial {
+  background-color: #FCFAF3;
+  border: 1px solid rgba(31, 36, 48, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(31, 36, 48, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card-3d:hover {
-  transform: perspective(1000px) translateY(-5px) scale(1.015);
-  box-shadow: 0 20px 35px -10px rgba(37, 99, 235, 0.15),
-              0 10px 15px -5px rgba(0, 0, 0, 0.04),
-              inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
-}
-
-.button-3d-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.35),
-              inset 0 1px 0 0 rgba(255, 255, 255, 0.35),
-              0 2px 0 0 #1e40af;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.button-3d-primary:hover {
+.card-editorial:hover {
   transform: translateY(-2px);
-  box-shadow: 0 7px 20px rgba(37, 99, 235, 0.45),
-              inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
-              0 3px 0 0 #1e40af;
+  box-shadow: 0 10px 28px rgba(31, 36, 48, 0.06);
 }
 
-.button-3d-primary:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3),
-              0 1px 0 0 #1e40af;
+.btn-pill-dark {
+  background-color: #1F2430;
+  color: #FCFAF3;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.bg-mesh-gradient {
-  background-color: #f8fafc;
-  background-image: 
-    radial-gradient(at 10% 15%, rgba(59, 130, 246, 0.12) 0px, transparent 55%),
-    radial-gradient(at 90% 10%, rgba(147, 51, 234, 0.08) 0px, transparent 50%),
-    radial-gradient(at 50% 90%, rgba(14, 165, 233, 0.10) 0px, transparent 60%),
-    radial-gradient(at 95% 85%, rgba(244, 63, 94, 0.06) 0px, transparent 50%);
-  background-attachment: fixed;
+.btn-pill-dark:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(1deg);
-  }
+.btn-pill-outline {
+  background-color: transparent;
+  color: #1F2430;
+  border: 1px solid rgba(31, 36, 48, 0.2);
+  border-radius: 999px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
+.btn-pill-outline:hover {
+  background-color: rgba(31, 36, 48, 0.05);
+  border-color: rgba(31, 36, 48, 0.4);
 }

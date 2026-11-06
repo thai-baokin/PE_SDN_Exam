@@ -23,3 +23,4 @@ CREATE INDEX IF NOT EXISTS "ReadingLog_userId_readOn_idx" ON "ReadingLog"("userI
 -- AddForeignKey
 ALTER TABLE "ReadingLog" DROP CONSTRAINT IF EXISTS "ReadingLog_userId_fkey";
 ALTER TABLE "ReadingLog" ADD CONSTRAINT "ReadingLog_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+

@@ -11,13 +11,19 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.5rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
       colors: {
+        // 4 Official Exam Editorial Palette Colors
+        kem: "#EFEBDD",    // Nền trang kem ấm (~60%)
+        nga: "#FCFAF3",    // Giấy ngà cho thẻ, form, danh sách (~25%)
+        muc: "#1F2430",    // Mực tối cho chữ, nút đặc, viền (~10%)
+        sanho: "#E5636B",  // Nhấn san hô cho favorite, active, số nhấn (~5%)
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -52,24 +58,23 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        serif: ["Fraunces", "Newsreader", "Georgia", "serif"],
+        sans: ["DM Sans", "Montserrat", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+      },
       borderRadius: {
+        "2xl": "20px",
+        "3xl": "24px",
+        "4xl": "28px",
+        pill: "999px",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+      boxShadow: {
+        subtle: "0 2px 10px rgba(31, 36, 48, 0.04)",
+        glass: "0 10px 30px rgba(31, 36, 48, 0.05)",
+        float: "0 16px 40px rgba(31, 36, 48, 0.08)",
       },
     },
   },

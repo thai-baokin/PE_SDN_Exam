@@ -3,8 +3,8 @@ import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata: Metadata = {
-  title: "ExpenseTrail",
-  description: "Track your personal expenses with ease",
+  title: "ReadLog - Personal Reading Log",
+  description: "Track your personal reading sessions, books, and genre insights",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen bg-background text-foreground">
+      <body className="antialiased min-h-screen bg-kem text-muc font-sans selection:bg-sanho/20 selection:text-muc">
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
