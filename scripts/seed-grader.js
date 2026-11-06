@@ -7,7 +7,7 @@ async function main() {
   const users = await prisma.user.findMany();
   console.log("Current users:", users.map(u => u.email));
 
-  for (const email of ["grader.test@example.com", "grader.qe190031@example.com"]) {
+  for (const email of ["grader.test@example.com", "grader.qe190108@example.com", "grader.qe190031@example.com"]) {
     const existing = await prisma.user.findUnique({ where: { email } });
     if (!existing) {
       const passwordHash = await bcrypt.hash("Test1234!", 10);
@@ -32,3 +32,4 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+

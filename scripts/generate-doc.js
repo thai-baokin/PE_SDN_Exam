@@ -140,7 +140,7 @@ async function generateReport() {
                     width: { size: 68, type: WidthType.PERCENTAGE },
                     children: [
                       new Paragraph({
-                        children: [new TextRun({ text: "QE190031", bold: true })],
+                        children: [new TextRun({ text: "QE190108", bold: true })],
                       }),
                     ],
                   }),
@@ -159,7 +159,7 @@ async function generateReport() {
                   new TableCell({
                     children: [
                       new Paragraph({
-                        children: [new TextRun({ text: "Nguyen Van Quy", bold: true })],
+                        children: [new TextRun({ text: "Nguyen Le Thai Bao", bold: true })],
                       }),
                     ],
                   }),
@@ -232,7 +232,7 @@ async function generateReport() {
                       new Paragraph({
                         children: [
                           new TextRun({
-                            text: "grader.qe190031@example.com",
+                            text: "grader.qe190108@example.com",
                             bold: true,
                             color: "0969DA",
                           }),
@@ -501,7 +501,7 @@ async function generateReport() {
             spacing: { before: 400 },
             children: [
               new TextRun({
-                text: "Candidate Signature: Nguyen Van Quy (QE190031)",
+                text: "Candidate Signature: Nguyen Le Thai Bao (QE190108)",
                 bold: true,
                 italics: true,
                 color: "57606A",
@@ -514,9 +514,12 @@ async function generateReport() {
   });
 
   const buffer = await Packer.toBuffer(doc);
-  const outPath = path.join(__dirname, "..", "PRACTICAL_EXAM_SUBMISSION_REPORT.docx");
-  fs.writeFileSync(outPath, buffer);
-  console.log("Successfully generated:", outPath);
+  const outPath1 = path.join(__dirname, "..", "PRACTICAL_EXAM_SUBMISSION_REPORT.docx");
+  const outPath2 = path.join(__dirname, "..", "QE190108.docx");
+  fs.writeFileSync(outPath1, buffer);
+  fs.writeFileSync(outPath2, buffer);
+  console.log("Successfully generated:", outPath1);
+  console.log("Successfully generated:", outPath2);
 }
 
 generateReport().catch(console.error);
