@@ -18,63 +18,44 @@ module.exports = {
     },
     extend: {
       colors: {
-        // 4 Official Exam Editorial Palette Colors
-        kem: "#EFEBDD",    // Nền trang kem ấm (~60%)
-        nga: "#FCFAF3",    // Giấy ngà cho thẻ, form, danh sách (~25%)
-        muc: "#1F2430",    // Mực tối cho chữ, nút đặc, viền (~10%)
-        sanho: "#E5636B",  // Nhấn san hô cho favorite, active, số nhấn (~5%)
-
+        // Flix.id Glassmorphism Theme Palette
+        flix: {
+          bg1: "#4E6E86",
+          bg2: "#8FAABD",
+          bg3: "#A9B8C4",
+          blob1: "#6C8FB3",
+          blob2: "#C9B7A6",
+          dark: "#0F1B2D",
+          glass: "rgba(255, 255, 255, 0.45)",
+          glassBorder: "rgba(255, 255, 255, 0.55)",
+          star: "#F5B942",
+          error: "#D64545",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
       },
       fontFamily: {
-        serif: ["Fraunces", "Newsreader", "Georgia", "serif"],
-        sans: ["DM Sans", "Montserrat", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: ["'Plus Jakarta Sans'", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["'Plus Jakarta Sans'", "system-ui", "-apple-system", "sans-serif"],
       },
       borderRadius: {
         "2xl": "20px",
         "3xl": "24px",
         "4xl": "28px",
+        "5xl": "32px",
         pill: "999px",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        subtle: "0 2px 10px rgba(31, 36, 48, 0.04)",
-        glass: "0 10px 30px rgba(31, 36, 48, 0.05)",
-        float: "0 16px 40px rgba(31, 36, 48, 0.08)",
+        flix: "0 24px 60px rgba(15, 27, 45, 0.18)",
+        glass: "0 12px 32px rgba(15, 27, 45, 0.10)",
+        subtle: "0 4px 16px rgba(15, 27, 45, 0.06)",
+        poster: "0 10px 24px rgba(15, 27, 45, 0.14)",
       },
     },
   },

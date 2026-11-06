@@ -17,42 +17,42 @@ export default function Header() {
 
   if (loading) {
     return (
-      <header className="sticky top-0 z-50 border-b border-muc/10 bg-nga/80 backdrop-blur-md">
-        <div className="container mx-auto flex items-center justify-between px-4 sm:px-8 py-3.5">
+      <header className="py-4 px-4 sm:px-8 border-b border-white/30 bg-white/20 backdrop-blur-md">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-2.5">
-            <div className="h-8 w-8 rounded-full bg-muc/10 animate-pulse" />
-            <span className="text-xl font-serif font-bold text-muc">ReadLog</span>
+            <div className="h-9 w-9 rounded-full bg-white/40 animate-pulse" />
+            <span className="text-xl font-bold text-flix-dark">ReadLog</span>
           </div>
-          <div className="h-8 w-28 rounded-pill bg-muc/10 animate-pulse" />
+          <div className="h-8 w-28 rounded-pill bg-white/40 animate-pulse" />
         </div>
       </header>
     );
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-muc/10 bg-nga/85 backdrop-blur-md shadow-subtle">
-      <div className="container mx-auto flex items-center justify-between px-4 sm:px-8 py-3.5">
-        {/* Editorial Logo */}
+    <header className="py-4 px-4 sm:px-8 border-b border-white/40 bg-white/25 backdrop-blur-md">
+      <div className="flex items-center justify-between max-w-7xl mx-auto">
+        {/* Flix.id Brand Logo */}
         <Link href="/" className="group flex items-center gap-2.5 transition-transform hover:scale-[1.02]">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-muc text-nga shadow-xs transition-colors group-hover:bg-sanho">
-            <BookOpen className="h-4 w-4" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-flix-dark text-white shadow-subtle transition-all group-hover:rotate-6">
+            <BookOpen className="h-5 w-5" />
           </div>
-          <span className="text-xl font-serif font-black tracking-tight text-muc">
+          <span className="text-2xl font-black tracking-tight text-flix-dark">
             ReadLog
           </span>
         </Link>
 
-        {/* Navigation Actions */}
+        {/* Navigation Action Pills */}
         <nav className="flex items-center gap-2 sm:gap-3">
           {user ? (
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="flex items-center gap-1.5 rounded-pill border border-muc/15 bg-kem/60 py-1 px-2.5">
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-muc text-nga shrink-0">
-                  <User className="h-2.5 w-2.5" />
+              <div className="flex items-center gap-2 rounded-pill border border-white/60 bg-white/50 py-1 px-3 backdrop-blur-sm shadow-subtle">
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-flix-dark text-white shrink-0">
+                  <User className="h-3 w-3" />
                 </div>
                 <span
                   data-testid="user-email"
-                  className="text-xs font-medium text-muc max-w-[120px] sm:max-w-[200px] truncate"
+                  className="text-xs font-semibold text-flix-dark max-w-[130px] sm:max-w-[220px] truncate"
                 >
                   {user.email}
                 </span>
@@ -61,7 +61,7 @@ export default function Header() {
               <Link
                 href="/reading-logs"
                 data-testid="link-reading-logs"
-                className="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-muc hover:text-sanho transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-flix-dark hover:text-blue-900 transition-colors px-3 py-1.5 rounded-pill hover:bg-white/40"
               >
                 <span>Reading Logs</span>
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -72,7 +72,7 @@ export default function Header() {
                 variant="outline"
                 size="sm"
                 onClick={handleLogout}
-                className="btn-pill-outline gap-1.5 text-xs px-3.5 py-1.5 h-auto cursor-pointer"
+                className="btn-flix-dark gap-1.5 text-xs px-4 py-2 h-auto cursor-pointer border-0"
               >
                 <LogOut className="h-3.5 w-3.5" />
                 <span>Logout</span>
@@ -85,7 +85,7 @@ export default function Header() {
                 variant="ghost"
                 size="sm"
                 onClick={() => router.push("/login")}
-                className="btn-pill-outline text-xs px-4 py-2 h-auto cursor-pointer border-transparent hover:border-muc/20"
+                className="flix-glass-pill text-xs font-bold px-5 py-2 h-auto cursor-pointer rounded-pill text-flix-dark border-white/60"
               >
                 Login
               </Button>
@@ -93,7 +93,7 @@ export default function Header() {
                 data-testid="btn-register"
                 size="sm"
                 onClick={() => router.push("/register")}
-                className="btn-pill-dark text-xs px-4 py-2 h-auto cursor-pointer"
+                className="btn-flix-dark text-xs px-5 py-2 h-auto cursor-pointer shadow-subtle"
               >
                 Register
               </Button>

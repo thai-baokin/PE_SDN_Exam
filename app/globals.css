@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,96 +6,123 @@
 
 @layer base {
   :root {
-    --kem: #EFEBDD;
-    --nga: #FCFAF3;
-    --muc: #1F2430;
-    --sanho: #E5636B;
-
-    --background: 46 29% 90%; /* #EFEBDD */
-    --foreground: 223 22% 15%; /* #1F2430 */
-    --card: 45 43% 97%; /* #FCFAF3 */
-    --card-foreground: 223 22% 15%;
-    --popover: 45 43% 97%;
-    --popover-foreground: 223 22% 15%;
-    --primary: 223 22% 15%;
-    --primary-foreground: 45 43% 97%;
-    --secondary: 46 20% 86%;
-    --secondary-foreground: 223 22% 15%;
-    --muted: 46 20% 86%;
-    --muted-foreground: 223 15% 40%;
-    --accent: 356 73% 66%; /* #E5636B */
-    --accent-foreground: 45 43% 97%;
-    --destructive: 356 73% 66%;
-    --destructive-foreground: 45 43% 97%;
-    --border: 223 22% 15% / 0.12;
-    --input: 223 22% 15% / 0.15;
-    --ring: 356 73% 66%;
+    --background: 206 27% 41%;
+    --foreground: 215 49% 12%;
+    --card: 0 0% 100% / 0.65;
+    --card-foreground: 215 49% 12%;
+    --popover: 0 0% 100% / 0.85;
+    --popover-foreground: 215 49% 12%;
+    --primary: 215 49% 12%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100% / 0.50;
+    --secondary-foreground: 215 49% 12%;
+    --muted: 0 0% 100% / 0.40;
+    --muted-foreground: 215 30% 35%;
+    --accent: 217 68% 54%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 66% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100% / 0.55;
+    --input: 0 0% 100% / 0.65;
+    --ring: 215 49% 12%;
     --radius: 1.25rem;
   }
 }
 
 @layer base {
   * {
-    border-color: rgba(31, 36, 48, 0.12);
+    border-color: rgba(255, 255, 255, 0.55);
   }
   body {
-    background-color: #EFEBDD;
-    color: #1F2430;
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #4E6E86 0%, #8FAABD 50%, #A9B8C4 100%);
+    color: #0F1B2D;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  h1, h2, h3, .font-serif {
-    font-family: 'Fraunces', Georgia, serif;
-    letter-spacing: -0.02em;
-  }
 }
 
-/* Warm Editorial Glass & Card Utilities */
-.editorial-glass {
-  background-color: rgba(252, 250, 243, 0.75);
+/* Flix.id Frosted Glass & Banner Utilities */
+.flix-frame {
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 24px 60px rgba(15, 27, 45, 0.18);
+  border-radius: 32px;
+}
+
+.flix-card {
+  background-color: rgba(255, 255, 255, 0.60);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 10px 30px rgba(31, 36, 48, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 24px rgba(15, 27, 45, 0.08);
 }
 
-.card-editorial {
-  background-color: #FCFAF3;
-  border: 1px solid rgba(31, 36, 48, 0.08);
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(31, 36, 48, 0.03);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.flix-glass-pill {
+  background-color: rgba(255, 255, 255, 0.50);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.60);
+  transition: all 0.2s ease;
 }
 
-.card-editorial:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(31, 36, 48, 0.06);
+.flix-glass-pill:hover {
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
-.btn-pill-dark {
-  background-color: #1F2430;
-  color: #FCFAF3;
+.btn-flix-dark {
+  background-color: #0F1B2D;
+  color: #FFFFFF;
   border-radius: 999px;
   font-weight: 600;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.btn-pill-dark:hover {
+.btn-flix-dark:hover {
   opacity: 0.92;
   transform: translateY(-1px);
 }
 
-.btn-pill-outline {
-  background-color: transparent;
-  color: #1F2430;
-  border: 1px solid rgba(31, 36, 48, 0.2);
+.btn-flix-white {
+  background-color: #FFFFFF;
+  color: #0F1B2D;
   border-radius: 999px;
-  font-weight: 500;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(15, 27, 45, 0.12);
+  transition: all 0.2s ease;
 }
 
-.btn-pill-outline:hover {
-  background-color: rgba(31, 36, 48, 0.05);
-  border-color: rgba(31, 36, 48, 0.4);
+.btn-flix-white:hover {
+  background-color: rgba(255, 255, 255, 0.90);
+  transform: translateY(-1px);
+}
+
+/* Genre Poster Gradients */
+.genre-fiction {
+  background: linear-gradient(145deg, #3B6FD8 0%, #1E3F8F 100%);
+}
+
+.genre-non-fiction {
+  background: linear-gradient(145deg, #F2994A 0%, #C8641E 100%);
+}
+
+.genre-sci-fi {
+  background: linear-gradient(145deg, #7B5CE0 0%, #3A2A8C 100%);
+}
+
+.genre-biography {
+  background: linear-gradient(145deg, #E2627A 0%, #A8304D 100%);
+}
+
+.genre-other {
+  background: linear-gradient(145deg, #4FA39A 0%, #26645E 100%);
+}
+
+/* Poster Aspect Ratio */
+.poster-ratio {
+  aspect-ratio: 2 / 3;
 }
