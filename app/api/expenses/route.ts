@@ -77,6 +77,16 @@ export async function GET(req: NextRequest) {
     ],
   });
 
+  // Ensure 100% case-insensitive alphabetical tie-breaker across all database collations
+  expenses.sort((a, b) => {
+    const dateA = a.spentAt.toISOString().split("T")[0];
+    const dateB = b.spentAt.toISOString().split("T")[0];
+    if (dateA !== dateB) {
+      return dateB.localeCompare(dateA);
+    }
+    return a.title.localeCompare(b.title, undefined, { sensitivity: "base" });
+  });
+
   return NextResponse.json(expenses.map(formatExpense));
 }
 
