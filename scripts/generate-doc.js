@@ -120,6 +120,50 @@ async function generateReport() {
             ],
           }),
 
+          // Exact plain text template as requested by exam specification
+          new Paragraph({
+            spacing: { before: 60, after: 40 },
+            children: [
+              new TextRun({ text: "Student Code: ", bold: true }),
+              new TextRun({ text: "QE190108" }),
+            ],
+          }),
+          new Paragraph({
+            spacing: { before: 40, after: 40 },
+            children: [
+              new TextRun({ text: "Full Name: ", bold: true }),
+              new TextRun({ text: "Nguyen Le Thai Bao" }),
+            ],
+          }),
+          new Paragraph({
+            spacing: { before: 40, after: 40 },
+            children: [
+              new TextRun({ text: "GitHub Repository URL: ", bold: true }),
+              new TextRun({ text: "https://github.com/thai-baokin/PE_SDN_Exam" }),
+            ],
+          }),
+          new Paragraph({
+            spacing: { before: 40, after: 40 },
+            children: [
+              new TextRun({ text: "Vercel Production URL: ", bold: true }),
+              new TextRun({ text: "https://pe-sdn-exam.vercel.app" }),
+            ],
+          }),
+          new Paragraph({
+            spacing: { before: 40, after: 40 },
+            children: [
+              new TextRun({ text: "Test account email: ", bold: true }),
+              new TextRun({ text: "grader.qe190108@example.com" }),
+            ],
+          }),
+          new Paragraph({
+            spacing: { before: 40, after: 140 },
+            children: [
+              new TextRun({ text: "Test account password: ", bold: true }),
+              new TextRun({ text: "Test1234!" }),
+            ],
+          }),
+
           // Table 1: Candidate & Credentials
           new Table({
             width: { size: 100, type: WidthType.PERCENTAGE },
