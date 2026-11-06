@@ -520,3 +520,4 @@ async function generateReport() {
 }
 
 generateReport().catch(console.error);
+
