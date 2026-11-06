@@ -1,35 +1,32 @@
 "use client";
 
 import Header from "@/components/Header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { TrendingUp, Tag, PieChart, Sparkles, ShieldCheck, Zap } from "lucide-react";
+import { BookOpen, Compass, Clock, Sparkles, ShieldCheck, BookmarkCheck } from "lucide-react";
 
 const features = [
   {
-    icon: <TrendingUp className="h-7 w-7 text-blue-600" />,
-    gradient: "from-blue-500/15 via-blue-400/10 to-transparent",
-    iconBg: "bg-gradient-to-tr from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/30",
-    title: "Track Spending",
+    icon: <BookOpen className="h-6 w-6 text-amber-800" />,
+    tag: "TRACKING",
+    title: "Log Every Session",
     description:
-      "Log every expense with title, amount, category and date. Never lose track of where your money goes.",
+      "Capture every book, pages read and duration in minutes with personal reflections and favorite tags.",
   },
   {
-    icon: <Tag className="h-7 w-7 text-emerald-600" />,
-    gradient: "from-emerald-500/15 via-emerald-400/10 to-transparent",
-    iconBg: "bg-gradient-to-tr from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/30",
-    title: "Sort into Categories",
+    icon: <Compass className="h-6 w-6 text-emerald-800" />,
+    tag: "EXPLORATION",
+    title: "Sort by Genre",
     description:
-      "Organize expenses by Food, Transport, Bills, Shopping or Other — filter and search with ease.",
+      "Organize seamlessly across Fiction, Non-Fiction, Sci-Fi, Biography or Other to balance your reading diet.",
   },
   {
-    icon: <PieChart className="h-7 w-7 text-purple-600" />,
-    gradient: "from-purple-500/15 via-purple-400/10 to-transparent",
-    iconBg: "bg-gradient-to-tr from-purple-500 to-pink-600 text-white shadow-md shadow-purple-500/30",
-    title: "See Where It Goes",
+    icon: <Clock className="h-6 w-6 text-stone-800" />,
+    tag: "INSIGHTS",
+    title: "See Minutes Read",
     description:
-      "Live summary shows totals by category so you always know your spending breakdown at a glance.",
+      "Live analytics break down your total reading volume by genre, giving you clear insights into your habits.",
   },
 ];
 
@@ -37,88 +34,88 @@ export default function HomePage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-mesh-gradient relative overflow-hidden flex flex-col">
+    <div className="min-h-screen bg-[#FAF7F2] text-amber-950 relative overflow-hidden flex flex-col font-sans">
       <Header />
 
-      {/* 3D Decorative Floating Ambient Spheres */}
-      <div className="pointer-events-none absolute -top-24 left-1/4 h-96 w-96 rounded-full bg-blue-400/15 blur-3xl animate-float-slow" />
-      <div className="pointer-events-none absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-purple-400/15 blur-3xl animate-float-slow" style={{ animationDelay: "-3s" }} />
+      {/* Warm Ambient Floating Spheres */}
+      <div className="pointer-events-none absolute -top-32 left-1/4 h-[32rem] w-[32rem] rounded-full bg-amber-200/35 blur-3xl" />
+      <div className="pointer-events-none absolute top-1/2 -right-24 h-[28rem] w-[28rem] rounded-full bg-emerald-100/40 blur-3xl" />
 
       <main className="container mx-auto px-4 py-16 sm:py-24 relative z-10 flex-1 flex flex-col justify-center">
         {/* Hero Section */}
         <div className="mx-auto max-w-3xl text-center">
-          {/* 3D Floating Pill Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white/80 px-4 py-1.5 shadow-[0_4px_16px_rgba(59,130,246,0.12)] backdrop-blur-md transition-transform hover:scale-105">
-            <Sparkles className="h-4 w-4 text-blue-600" />
-            <span className="text-xs font-semibold tracking-wide text-blue-900 uppercase">
-              Smart Personal Budgeting
+          {/* Editorial Tag */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-900/10 bg-white/80 px-4 py-1.5 shadow-[0_4px_16px_rgba(180,83,9,0.08)] backdrop-blur-md">
+            <Sparkles className="h-3.5 w-3.5 text-amber-700" />
+            <span className="text-[11px] font-bold tracking-[0.2em] text-amber-900 uppercase">
+              Mindful Reading Journal
             </span>
           </div>
 
           {/* Exact data-testid for Home Title */}
           <h1
             data-testid="home-title"
-            className="mb-6 text-5xl sm:text-6xl font-black tracking-tight text-gray-900 drop-shadow-xs"
+            className="mb-6 text-5xl sm:text-7xl font-serif font-black tracking-tight text-amber-950"
           >
-            ExpenseTrail
+            ReadLog
           </h1>
 
-          <p className="mb-10 text-lg sm:text-xl font-normal leading-relaxed text-gray-600 max-w-2xl mx-auto">
-            Your personal finance companion. Track spending, stay organised and
-            always know where your money goes.
+          <p className="mb-10 text-lg sm:text-xl font-normal leading-relaxed text-amber-900/80 max-w-2xl mx-auto">
+            Your personal reading companion. Track every session, discover patterns across genres, and cultivate a deeper reading habit.
           </p>
 
-          {/* 3D Interactive Buttons */}
+          {/* Warm Editorial Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button
               size="lg"
               onClick={() => router.push("/register")}
-              className="button-3d-primary font-bold text-base px-8 py-6 rounded-xl shadow-lg cursor-pointer"
+              className="bg-amber-900 hover:bg-amber-950 text-amber-50 font-semibold text-base px-8 py-6 rounded-full shadow-[0_10px_25px_rgba(120,53,15,0.25)] transition-all hover:-translate-y-0.5 cursor-pointer"
             >
-              Get Started
+              Start Your Log
             </Button>
             <Button
               variant="outline"
               size="lg"
               onClick={() => router.push("/login")}
-              className="glass-panel font-semibold text-base text-gray-800 px-8 py-6 rounded-xl border-white/80 shadow-md hover:bg-white hover:shadow-lg transition-all hover:-translate-y-0.5 cursor-pointer"
+              className="bg-white/70 hover:bg-white text-amber-950 font-semibold text-base px-8 py-6 rounded-full border border-amber-900/15 shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer"
             >
               Sign In
             </Button>
           </div>
 
-          {/* Trust Highlights */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-gray-500">
+          {/* Features Highlights */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-amber-900/60">
             <div className="flex items-center gap-1.5">
-              <ShieldCheck className="h-4 w-4 text-emerald-600" />
+              <ShieldCheck className="h-4 w-4 text-emerald-700" />
               <span>HttpOnly JWT Security</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Zap className="h-4 w-4 text-amber-500" />
-              <span>Real-time Category Analytics</span>
+              <BookmarkCheck className="h-4 w-4 text-amber-700" />
+              <span>Real-time Genre Metrics</span>
             </div>
           </div>
         </div>
 
-        {/* 3D Feature Cards Grid */}
-        <div className="mt-20 grid gap-8 sm:grid-cols-3 max-w-5xl mx-auto w-full">
-          {features.map((f) => (
+        {/* 3 Feature Cards */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
+          {features.map((f, i) => (
             <Card
-              key={f.title}
-              className="card-3d glass-panel relative overflow-hidden rounded-2xl border-white/70 p-2"
+              key={i}
+              className="group relative rounded-3xl border border-white/80 bg-white/60 p-6 shadow-[0_12px_36px_rgba(44,36,25,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(44,36,25,0.08)]"
             >
-              <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${f.gradient} blur-xl`} />
-              
-              <CardHeader className="items-center text-center pb-2 pt-6">
-                <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-2xl ${f.iconBg} transform transition-transform group-hover:scale-110 group-hover:rotate-3`}>
+              <CardContent className="p-0">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100/70 border border-amber-200/50 shadow-xs mb-5">
                   {f.icon}
                 </div>
-                <CardTitle className="text-xl font-bold text-gray-900 tracking-tight">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-amber-800/70 uppercase block mb-1">
+                  {f.tag}
+                </span>
+                <h3 className="text-xl font-serif font-bold text-amber-950 mb-2">
                   {f.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-center text-sm leading-relaxed text-gray-600 pb-6 px-4">
-                {f.description}
+                </h3>
+                <p className="text-sm leading-relaxed text-amber-900/70 font-normal">
+                  {f.description}
+                </p>
               </CardContent>
             </Card>
           ))}

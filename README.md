@@ -1,12 +1,12 @@
-# ExpenseTrail - SDN302 Practical Exam
+# ReadLog - SDN302 Practical Exam (Fall 2026)
 
 ## Cấu trúc dự án
-Dự án được xây dựng theo chuẩn yêu cầu của bài thi PE SDN302:
+Dự án được xây dựng theo chuẩn yêu cầu của bài thi PE SDN302 (ReadLog - Personal Reading Log):
 - **Framework**: Next.js (App Router, TypeScript)
-- **Styling & UI**: Tailwind CSS + ShadCN UI (Button, Card, Input, Label, Select...)
+- **Styling & UI**: Tailwind CSS + ShadCN UI (Button, Card, Input, Label...)
 - **ORM**: Prisma với PostgreSQL (Supabase)
 - **Auth**: Tự xây dựng custom JWT Authentication với HttpOnly Cookie `session_token`
-- **State Management**: React Context (`AuthContext` & `ExpenseContext`)
+- **State Management**: React Context (`AuthContext` & `ReadingLogContext`)
 
 ---
 
@@ -30,17 +30,14 @@ AUTH_SECRET="your-random-32-character-secret-key-here"
 3. Điền 2 URL trên cùng `AUTH_SECRET` vào file `.env.local`.
 
 ### Bước 2: Chạy Database Migration
-Chạy lệnh sau trên terminal để tạo bảng trên Supabase:
 ```bash
-npx prisma migrate deploy
+npx prisma db push
 ```
-*(Thư mục `prisma/migrations` đã được tạo sẵn trong project).*
 
 ### Bước 3: Đẩy code lên GitHub
 ```bash
 git push -u origin main
 ```
-*(Nếu cần token hoặc authentication, đăng nhập GitHub tương ứng).*
 
 ### Bước 4: Deploy lên Vercel
 1. Vào [vercel.com](https://vercel.com) -> **Add New Project** -> Chọn repository `PE_SDN_Exam`.
@@ -52,22 +49,6 @@ git push -u origin main
 4. **Lưu ý quan trọng**: Đảm bảo tắt **Vercel Authentication** (Vercel Project Settings -> Deployment Protection -> Vercel Authentication -> Disabled) để hệ thống chấm bài tự động có thể truy cập.
 
 ### Bước 5: Tạo Test Account cho Grader
-1. Truy cập vào trang web đã deploy trên Vercel: `https://<your-project>.vercel.app/register`.
-2. Đăng ký tài khoản test theo định dạng mã sinh viên của bạn:
-   - Email: `grader.<mã_sv>@example.com` (ví dụ: `grader.qe123456@example.com`)
-   - Password: `Test1234!`
-3. Đăng nhập thử một lần trên web để kiểm tra.
-
-### Bước 6: Chuẩn bị file nộp bài
-1. **File Word** (`<Mã_SV>.docx`):
-   ```text
-   Student Code: <Mã_SV>
-   Full Name: <Họ và Tên>
-   GitHub Repository URL: https://github.com/thai-baokin/PE_SDN_Exam
-   Vercel Production URL: https://<your-project>.vercel.app
-   Test account email: grader.<mã_sv>@example.com
-   Test account password: Test1234!
-   ```
-2. **File Zip** (`<Mã_SV>.zip`):
-   Nén toàn bộ source code ngoại trừ `node_modules`, `.next`, `.git`, `.env.local`.
-
+- Email: `grader.qe190108@example.com`
+- Password: `Test1234!`
+- Đã được đăng ký và khởi tạo trực tiếp qua API vào Supabase PostgreSQL DB.

@@ -463,7 +463,7 @@ async function generateReport() {
             spacing: { after: 120 },
             children: [
               new TextRun({ text: "• 3.1. Database Schema & Data Models: ", bold: true, color: primaryColor }),
-              new TextRun("Thiết kế cơ sở dữ liệu quan hệ hoàn chỉnh (ERD Diagram, quan hệ 1-N giữa User và Expense/thực thể đề bài, các constraints, unique index trên email và user-expense, cascade delete)."),
+              new TextRun("Thiết kế cơ sở dữ liệu quan hệ hoàn chỉnh (ERD Diagram, quan hệ 1-N giữa User và ReadingLog, các constraints, unique index trên email và index userId+readOn, cascade delete)."),
             ],
           }),
           new Paragraph({

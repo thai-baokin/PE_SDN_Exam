@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Wallet, UserPlus, AlertCircle, CheckCircle2 } from "lucide-react";
+import { BookOpen, UserPlus, AlertCircle, CheckCircle2 } from "lucide-react";
 
 function validateEmail(email: string) {
   if (!email) return "Email is required";
@@ -69,11 +69,12 @@ export default function RegisterPage() {
 
   const handleConfirmPasswordChange = (v: string) => {
     setConfirmPassword(v);
-    if (submitted)
+    if (submitted) {
       setErrors((prev) => ({
         ...prev,
         confirmPassword: validateConfirmPassword(password, v),
       }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -81,6 +82,7 @@ export default function RegisterPage() {
     setSubmitted(true);
     setAuthError("");
     setSuccess(false);
+
     if (!validate()) return;
 
     setIsLoading(true);
@@ -110,110 +112,133 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-mesh-gradient px-4 py-12 relative overflow-hidden">
-      {/* 3D Decorative Floating Ambient Spheres */}
-      <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full bg-blue-500/15 blur-3xl animate-float-slow" />
-      <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-indigo-500/15 blur-3xl animate-float-slow" style={{ animationDelay: "-3s" }} />
+    <div className="flex min-h-screen items-center justify-center bg-[#FAF7F2] px-4 py-12 relative overflow-hidden font-sans">
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-amber-300/30 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl" />
 
-      <Card className="w-full max-w-md glass-panel relative z-10 rounded-2xl border-white/80 shadow-[0_20px_50px_rgba(0,0,0,0.06)] overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
+      <Card className="w-full max-w-md relative z-10 rounded-3xl border border-white/80 bg-white/75 shadow-[0_20px_50px_rgba(44,36,25,0.06)] backdrop-blur-xl overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-700 via-amber-800 to-amber-900" />
         
         <CardHeader className="text-center pt-8 pb-4">
-          <Link href="/" className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-[0_4px_14px_rgba(37,99,235,0.4)] transition-transform hover:scale-105">
-            <Wallet className="h-6 w-6" />
+          <Link href="/" className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-800 text-amber-50 shadow-[0_4px_14px_rgba(180,83,9,0.3)] transition-transform hover:scale-105">
+            <BookOpen className="h-6 w-6" />
           </Link>
-          <CardTitle className="text-2xl font-extrabold text-gray-900 tracking-tight">Create Account</CardTitle>
-          <CardDescription className="text-sm text-gray-500">
-            Start tracking and mastering your budget today.
+          <CardTitle className="text-2xl font-serif font-black text-amber-950 tracking-tight">Create Account</CardTitle>
+          <CardDescription className="text-sm text-amber-900/70">
+            Join ReadLog and start cataloging your books
           </CardDescription>
         </CardHeader>
-        <CardContent className="px-6 pb-8">
+
+        <CardContent className="px-6 sm:px-8 pb-8">
           <form
             data-testid="register-form"
-            noValidate
             onSubmit={handleSubmit}
+            noValidate
             className="space-y-4"
           >
+            {/* Email Field */}
             <div className="space-y-1.5">
-              <Label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
+              <Label htmlFor="email" className="text-xs font-bold text-amber-950 uppercase tracking-wider">
                 Email
               </Label>
               <Input
                 id="email"
-                data-testid="register-email"
                 type="email"
+                data-testid="register-email"
                 value={email}
                 onChange={(e) => handleEmailChange(e.target.value)}
-                placeholder="you@example.com"
-                className="h-11 rounded-xl border-gray-200 bg-white/90 shadow-inner focus-visible:ring-4 focus-visible:ring-blue-500/15 transition-all text-sm"
+                placeholder="reader@example.com"
+                className={`rounded-xl border bg-white/90 px-3.5 py-2.5 text-sm transition-all focus:border-amber-800 focus:ring-2 focus:ring-amber-800/20 ${
+                  errors.email ? "border-rose-400 bg-rose-50/20" : "border-amber-900/15"
+                }`}
               />
               {errors.email && (
-                <p data-testid="error-email" className="text-xs font-medium text-red-500 flex items-center gap-1 mt-1">
-                  {errors.email}
+                <p
+                  data-testid="error-email"
+                  className="text-xs font-medium text-rose-600 flex items-center gap-1 mt-1"
+                >
+                  <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+                  <span>{errors.email}</span>
                 </p>
               )}
             </div>
 
+            {/* Password Field */}
             <div className="space-y-1.5">
-              <Label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
+              <Label htmlFor="password" className="text-xs font-bold text-amber-950 uppercase tracking-wider">
                 Password
               </Label>
               <Input
                 id="password"
-                data-testid="register-password"
                 type="password"
+                data-testid="register-password"
                 value={password}
                 onChange={(e) => handlePasswordChange(e.target.value)}
                 placeholder="At least 6 characters"
-                className="h-11 rounded-xl border-gray-200 bg-white/90 shadow-inner focus-visible:ring-4 focus-visible:ring-blue-500/15 transition-all text-sm"
+                className={`rounded-xl border bg-white/90 px-3.5 py-2.5 text-sm transition-all focus:border-amber-800 focus:ring-2 focus:ring-amber-800/20 ${
+                  errors.password ? "border-rose-400 bg-rose-50/20" : "border-amber-900/15"
+                }`}
               />
               {errors.password && (
                 <p
                   data-testid="error-password"
-                  className="text-xs font-medium text-red-500 flex items-center gap-1 mt-1"
+                  className="text-xs font-medium text-rose-600 flex items-center gap-1 mt-1"
                 >
-                  {errors.password}
+                  <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+                  <span>{errors.password}</span>
                 </p>
               )}
             </div>
 
+            {/* Confirm Password Field */}
             <div className="space-y-1.5">
-              <Label htmlFor="confirmPassword" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
+              <Label
+                htmlFor="confirmPassword"
+                className="text-xs font-bold text-amber-950 uppercase tracking-wider"
+              >
                 Confirm Password
               </Label>
               <Input
                 id="confirmPassword"
-                data-testid="register-confirm-password"
                 type="password"
+                data-testid="register-confirm-password"
                 value={confirmPassword}
                 onChange={(e) => handleConfirmPasswordChange(e.target.value)}
-                placeholder="Repeat your password"
-                className="h-11 rounded-xl border-gray-200 bg-white/90 shadow-inner focus-visible:ring-4 focus-visible:ring-blue-500/15 transition-all text-sm"
+                placeholder="Repeat password"
+                className={`rounded-xl border bg-white/90 px-3.5 py-2.5 text-sm transition-all focus:border-amber-800 focus:ring-2 focus:ring-amber-800/20 ${
+                  errors.confirmPassword
+                    ? "border-rose-400 bg-rose-50/20"
+                    : "border-amber-900/15"
+                }`}
               />
               {errors.confirmPassword && (
                 <p
                   data-testid="error-confirm-password"
-                  className="text-xs font-medium text-red-500 flex items-center gap-1 mt-1"
+                  className="text-xs font-medium text-rose-600 flex items-center gap-1 mt-1"
                 >
-                  {errors.confirmPassword}
+                  <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+                  <span>{errors.confirmPassword}</span>
                 </p>
               )}
             </div>
 
+            {/* API Auth Error Message */}
             {authError && (
-              <div className="rounded-xl border border-red-200 bg-red-50/90 p-3 shadow-xs">
-                <p data-testid="error-auth" className="text-xs font-medium text-red-600 flex items-center gap-1.5">
-                  <AlertCircle className="h-4 w-4 shrink-0 text-red-500" />
+              <div className="rounded-xl border border-rose-200 bg-rose-50/80 p-3">
+                <p data-testid="error-auth" className="text-xs font-medium text-rose-700 flex items-center gap-1.5">
+                  <AlertCircle className="h-4 w-4 shrink-0 text-rose-600" />
                   <span>{authError}</span>
                 </p>
               </div>
             )}
 
+            {/* Form Success Message */}
             {success && (
-              <div className="rounded-xl border border-emerald-200 bg-emerald-50/90 p-3 shadow-xs">
+              <div className="rounded-xl border border-emerald-200 bg-emerald-50/80 p-3">
                 <p
                   data-testid="form-success"
-                  className="text-xs font-semibold text-emerald-700 flex items-center gap-1.5"
+                  className="text-xs font-semibold text-emerald-800 flex items-center gap-1.5"
                 >
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
                   <span>Registration successful</span>
@@ -221,22 +246,35 @@ export default function RegisterPage() {
               </div>
             )}
 
+            {/* Submit Button */}
             <Button
-              data-testid="register-submit"
               type="submit"
+              data-testid="register-submit"
               disabled={isLoading}
-              className="button-3d-primary w-full h-11 font-bold text-white rounded-xl shadow-md cursor-pointer mt-2"
+              className="w-full bg-amber-900 hover:bg-amber-950 text-amber-50 font-semibold py-6 rounded-xl shadow-md transition-all hover:-translate-y-0.5 cursor-pointer mt-2"
             >
-              <UserPlus className="mr-2 h-4 w-4" />
-              <span>{isLoading ? "Creating Account..." : "Create Account"}</span>
+              {isLoading ? (
+                <span className="flex items-center gap-2">
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  <span>Registering...</span>
+                </span>
+              ) : (
+                <span className="flex items-center justify-center gap-2">
+                  <UserPlus className="h-4 w-4" />
+                  <span>Register</span>
+                </span>
+              )}
             </Button>
 
-            <p className="text-center text-xs text-gray-500 pt-3 border-t border-gray-100">
+            <div className="pt-2 text-center text-xs text-amber-900/70">
               Already have an account?{" "}
-              <Link href="/login" className="font-semibold text-blue-600 hover:text-blue-800 hover:underline">
-                Sign In
+              <Link
+                href="/login"
+                className="font-bold text-amber-900 hover:underline"
+              >
+                Sign in here
               </Link>
-            </p>
+            </div>
           </form>
         </CardContent>
       </Card>

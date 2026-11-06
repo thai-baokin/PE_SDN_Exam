@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { ExpenseProvider, useExpenses } from "./ExpenseContext";
+import { ReadingLogProvider, useReadingLogs } from "./ReadingLogContext";
 
 interface AuthUser {
   id: string;
@@ -20,7 +20,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 function AuthProviderInner({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
-  const { clearExpenses } = useExpenses();
+  const { clearReadingLogs } = useReadingLogs();
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -42,7 +42,7 @@ function AuthProviderInner({ children }: { children: React.ReactNode }) {
   const logout = async () => {
     await fetch("/api/auth/logout", { method: "POST" });
     setUser(null);
-    clearExpenses();
+    clearReadingLogs();
   };
 
   return (
@@ -54,9 +54,9 @@ function AuthProviderInner({ children }: { children: React.ReactNode }) {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   return (
-    <ExpenseProvider>
+    <ReadingLogProvider>
       <AuthProviderInner>{children}</AuthProviderInner>
-    </ExpenseProvider>
+    </ReadingLogProvider>
   );
 }
 
